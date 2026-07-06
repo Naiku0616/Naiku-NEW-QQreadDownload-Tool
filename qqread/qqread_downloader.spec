@@ -1,0 +1,55 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+
+a = Analysis(
+    ['main.py'],
+    pathex=[],
+    binaries=[],
+    datas=[],
+    hiddenimports=[],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[
+        'tkinter', 'Tkinter',
+        'unittest', 'doctest', 'test',
+        'smtplib', 'imaplib', 'poplib', 'nntplib',
+        'xmlrpc',
+        'sqlite3',
+        'pydoc',
+        'bdb', 'pdb',
+        'trace',
+        'distutils',
+        'setuptools', 'pip', 'pkg_resources',
+        'numpy', 'scipy', 'matplotlib', 'pandas', 'torch',
+        'PIL', 'Pillow',
+        'PyQt5', 'PyQt6', 'PySide2', 'PySide6',
+        'wx', 'wxPython',
+        'cProfile', 'profile',
+        'lxml.sax', 'lxml.objectify', 'lxml.builder',
+    ],
+    noarchive=True,
+    optimize=2,
+)
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='qqread_downloader',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=True,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+)
